@@ -1,7 +1,8 @@
+import Register from "./Pages/RegisterPage/Register";
 function App() {
   return (
-    <div className="App">
-      <h1>Lokesh</h1>
+    <div>
+      <Register/>
     </div>
   );
 }
