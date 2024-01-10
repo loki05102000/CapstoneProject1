@@ -6,7 +6,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Register />} />
-        <Route path= "/choice" element = {<ChoicePage/>}/>
+        <Route exact path= "/choice" element = {<ChoicePage/>}/>
       </Routes>
     </div>
   );
