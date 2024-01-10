@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import logo from "./Images/WallStreet.jpeg";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   // let [name, setName] = useState("");
@@ -22,6 +23,7 @@ function Register() {
   let [error2, setError2] = useState(false);
   let [error3, setError3] = useState(false);
   let [error4, setError4] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,10 +46,15 @@ function Register() {
     if (isChecked == false) {
       setError4(true);
     } else {
-      localStorage.setItem("name", data.name);
-      localStorage.setItem("userName", data.userName);
-      localStorage.setItem("Email", data.email);
-      localStorage.setItem("mobileNumber", data.mobileNumber);
+      // To store single data in localStorage.
+      // localStorage.setItem("name", data.name);
+      // localStorage.setItem("userName", data.userName);
+      // localStorage.setItem("Email", data.email);
+      // localStorage.setItem("mobileNumber", data.mobileNumber);
+
+      // To store multiple data in LocalStorage 
+      window.localStorage.setItem("userData",JSON.stringify(data))
+      navigate("/choice");
     }
   };
 
@@ -146,6 +153,7 @@ function Register() {
               )}
             </div>
             <button onClick={handleSubmit}>SIGN UP</button>
+            {/* <Link to="/choice" ><button onClick={handleSubmit}>SIGN UP</button></Link> */}
             <h5>
               By clicking on Sign up. you agree to Wall Street{" "}
               <span>Terms and Conditions of Use</span>{" "}
